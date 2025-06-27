@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saesara Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container text-center my-5 position-relative">
+        <h1 class="display-3 mb-4 text-white fw-bold">🎮 Saesara Game 🎮</h1>
+
+        <!-- Rule Box -->
+        <div id="rule-box" class="position-absolute top-0 end-0 p-3 mt-3 me-3 bg-light rounded shadow">
+            <span style="font-size: 20px;" class="fw-bold"> Game Rules 📜</span>
+            <div id="rule-details" class="rule-details">
+                <h4 class="fw-bold">How to Play:</h4>
+                <ul class="text-start">
+                    <li>Players take turns selecting a grid cell.</li>
+                    <li>If the selected cell follows the secret pattern, the player earns a point.</li>
+                    <li>The turn passes to the next player regardless of move validity.</li>
+                    <li>After each player completes one turn, the "Guess Rule" button appears on their next turn.</li>
+                    <li>The player can try to guess the secret rule from the options shown.</li>
+                    <li>If the guess is correct, the player wins the game.</li>
+                    <li>If the guess is wrong, the player is eliminated.</li>
+                    <li>If all players give up, the secret rule will be revealed.</li>
+                    <li>Click "Restart Game" to play a new round.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Setup Page -->
+        <div id="setup" class="p-4 border rounded shadow bg-setup text-dark">
+            <h2 class="mb-4 fw-bold">Setup Game</h2>
+
+            <label for="players" class="form-label fs-4 fw-bold">Select Number of Players:</label>
+            <select id="players" class="form-select mb-4 fs-5">
+                <option value="3">3 Players</option>
+                <option value="4">4 Players</option>
+                <option value="5">5 Players</option>
+            </select>
+
+            <button id="start-btn" class="btn btn-primary btn-lg mt-3">Start Game</button>
+
+            <div id="player-boxes" class="mt-4"></div>
+        </div>
+
+        <!-- Game Page -->
+        <div id="game" style="display:none;" class="mt-5">
+
+            <!-- Turn Indicator Box -->
+            <div id="turn-box" class="mb-4 p-3 rounded shadow bg-turn text-white fs-4 fw-bold">
+                <h2 id="turn-indicator" class="mb-0"></h2>
+            </div>
+
+            <!-- Scoreboard Box -->
+            <div id="score-box" class="mb-4 p-3 rounded shadow bg-score text-dark fs-5">
+                <h4 class="fw-bold">Scoreboard</h4>
+                <div id="scoreboard" class="scoreboard-container"></div>
+            </div>
+
+            <div id="game-board" class="mb-4"></div>
+
+            <div id="controls" class="mb-4">
+                <button id="guess-rule-btn" class="btn btn-primary btn-lg me-3" style="display: none;">Guess Rule</button>
+                <!-- <button id="guess-rule-btn" class="btn btn-success btn-lg me-3" style="display: none;">Guess Rule</button> -->
+                <button id="give-up-btn" class="btn btn-danger btn-lg me-3">Give Up</button>
+                <button id="restart-btn" class="btn btn-warning btn-lg" style="display: none;">Restart Game</button>
+            </div>
+
+            <!-- Guess Rule Options -->
+            <div id="guess-options" class="guess-options-container mt-4"></div>
+
+            <!-- Give Up Confirmation Box -->
+            <div id="give-up-confirmation" class="give-up-box mt-4" style="display: none;">
+                <p class="fs-5 fw-bold text-white">Are you sure you want to give up?</p>
+                <button id="confirm-give-up" class="btn btn-danger me-3">Yes</button>
+                <button id="cancel-give-up" class="btn btn-secondary">No</button>
+            </div>
+
+            <p id="message" class="fs-4 text-white"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
