@@ -137,8 +137,8 @@ body {
 
 /* Rule Box Styling */
 #rule-box {
-    width: 250px;
-    position: absolute;
+    width:400 px;
+    position: relative;
     cursor: pointer;
 }
 
@@ -147,7 +147,7 @@ body {
     position: absolute;
     top: 100%;
     right: 0;
-    width: 300px;
+    width: 450px;
     background-color: #f8f9fa;
     border: 2px solid #343a40;
     border-radius: 10px;
